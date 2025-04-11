@@ -95,7 +95,6 @@
         }
         img {
             height: 14px;
-            transform: translateX(-50%);
             animation: bounce 1.5s infinite;
             cursor: default;
         }
@@ -119,9 +118,54 @@
 
 @keyframes bounce {
     0%, 100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
     }
     50% {
-        transform: translateX(-50%) translateY(10px);
+        transform: translateY(10px);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .indexPage {
+        &__header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+        }
+        &__mainNav {
+            justify-content: flex-start;
+            gap: 0;
+            li {
+                display: none;
+                &:nth-child(4) {
+                    display: block;
+                }
+                img {
+                    height: 32px;
+                }
+            }
+        }
+        &__lanSwitch {
+            position: static;
+        }
+        &__title {
+            flex-direction: column;
+            gap: 56px;
+            padding: 0 24px;
+            .slogan {
+                font-size: 20px;
+            }
+            img {
+                height: 48px;
+            }
+        }
+        &__footer {
+            gap: 24px;
+            padding: 24px;
+            p {
+                max-width: 100%;
+            }
+        }
     }
 }
