@@ -240,7 +240,7 @@ img {
 .footer {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 72px);
+  width: calc(100% - 64px);
   margin: 0 32px;
   background-color: #dee4ef;
 }
@@ -713,6 +713,7 @@ img {
 }
 .productContent__list .cards li a .name {
   font-size: 16px;
+  line-height: 16px;
 }
 
 .productInsideContent {
@@ -881,8 +882,8 @@ img {
 @media screen and (max-width: 1024px) {
   .productContent {
     flex-direction: column;
-    gap: 32px;
-    padding: 16px 16px 40px;
+    gap: 16px;
+    padding: 16px 16px 32px;
   }
   .productContent__nav {
     position: fixed;
@@ -918,38 +919,20 @@ img {
     height: calc(100vh - 117px);
   }
   .productContent__list {
-    gap: 32px;
+    gap: 16px;
     width: 100%;
     padding-top: 64px;
   }
   .productContent__list .cards {
-    gap: 24px;
+    gap: 16px;
   }
   .productContent__list .cards li {
     flex: 0 0 calc(50% - 12px);
   }
-  .productContent__list .cards li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    color: #1a1311;
-    text-decoration: none;
-  }
-  .productContent__list .cards li a img {
-    width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
-  }
-  .productContent__list .cards li a .name {
-    font-size: 16px;
-  }
   .productInsideContent {
     flex-direction: column;
-    gap: 32px;
-    padding: 16px 16px 40px;
+    gap: 16px;
+    padding: 16px 16px 32px;
   }
   .productInsideContent__option {
     display: none;
@@ -962,6 +945,7 @@ img {
   .productInsideContent__images {
     order: 3;
     width: 100%;
+    gap: 16px;
   }
   .productInsideContent__images img {
     width: 100%;
@@ -1129,7 +1113,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: calc(100% - 312px);
+  width: calc(100% - 296px);
 }
 .projectInsideContent__images .section {
   display: flex;
@@ -1150,7 +1134,7 @@ img {
 @media screen and (max-width: 1024px) {
   .projectContent {
     gap: 16px;
-    padding: 16px 0;
+    padding: 16px 0 32px;
   }
   .projectContent .searchArea {
     align-self: center;
@@ -1186,8 +1170,8 @@ img {
   }
   .projectInsideContent {
     flex-direction: column;
-    gap: 32px;
-    padding: 16px;
+    gap: 16px;
+    padding: 16px 16px 32px;
   }
   .projectInsideContent__info {
     width: 100%;
@@ -1279,7 +1263,8 @@ img {
 
 @media screen and (max-width: 1024px) {
   .brandContent {
-    padding: 16px 16px 40px;
+    gap: 16px;
+    padding: 16px 16px 32px;
   }
   .brandContent__list {
     gap: 16px;
@@ -1297,7 +1282,7 @@ img {
   .brandInsideContent {
     flex-direction: column;
     gap: 16px;
-    padding: 16px 16px 40px;
+    padding: 16px 16px 32px;
   }
   .brandInsideContent__info {
     width: 100%;
@@ -1471,7 +1456,7 @@ img {
 @media screen and (max-width: 1024px) {
   .newsContent {
     gap: 16px;
-    padding: 16px 16px 40px;
+    padding: 16px 16px 32px;
   }
   .newsContent__categoryList {
     justify-content: center;
@@ -1496,7 +1481,7 @@ img {
   .newsInsideContent {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 16px;
     padding: 16px 16px 32px;
   }
   .newsInsideContent__mainInfo {
@@ -1585,7 +1570,7 @@ img {
 
 @media screen and (max-width: 1024px) {
   .aboutContent {
-    gap: 32px;
+    gap: 16px;
     width: 100%;
     padding: 16px 16px 32px;
   }
@@ -1713,8 +1698,8 @@ img {
 @media screen and (max-width: 1024px) {
   .contactContent {
     flex-direction: column;
+    gap: 16px;
     padding: 16px 16px 32px;
-    gap: 32px;
   }
   .contactContent__table .section {
     gap: 16px;

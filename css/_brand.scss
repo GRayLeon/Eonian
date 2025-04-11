@@ -70,7 +70,8 @@
 
 @media screen and (max-width: 1024px) {
     .brandContent {
-        padding: 16px 16px 40px;
+        gap: 16px;
+        padding: 16px 16px 32px;
         &__list {
             gap: 16px;
             li {
@@ -88,7 +89,7 @@
     .brandInsideContent {
         flex-direction: column;
         gap: 16px;
-        padding: 16px 16px 40px;
+        padding: 16px 16px 32px;
         &__info {
             width: 100%;
         }

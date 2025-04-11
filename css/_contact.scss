@@ -100,8 +100,8 @@
 @media screen and (max-width: 1024px) {
     .contactContent {
         flex-direction: column;
+        gap: 16px;
         padding: 16px 16px 32px;
-        gap: 32px;
         &__table {
             .section {
                 gap: 16px;

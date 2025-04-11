@@ -118,7 +118,8 @@
                         object-position: center;
                     }
                     .name {
-                        font-size: 16px;;
+                        font-size: 16px;
+                        line-height: 16px;
                     }
                 }
             }
@@ -294,8 +295,8 @@
 @media screen and (max-width: 1024px) {
     .productContent {
         flex-direction: column;
-        gap: 32px;
-        padding: 16px 16px 40px;
+        gap: 16px;
+        padding: 16px 16px 32px;
         &__nav {
             position: fixed;
             top: 53px;
@@ -330,37 +331,21 @@
             }
         }
         &__list {
-            gap: 32px;
+            gap: 16px;
             width: 100%;
             padding-top: 64px;
             .cards {
-                gap: 24px;
+                gap: 16px;
                 li {
                     flex: 0 0 calc( 50% - 24px/2 );
-                    a {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 16px;
-                        color: #1a1311;
-                        text-decoration: none;
-                        img {
-                            width: 100%;
-                            object-fit: cover;
-                            object-position: center;
-                        }
-                        .name {
-                            font-size: 16px;;
-                        }
-                    }
                 }
             }
         }
     }
     .productInsideContent {
         flex-direction: column;
-        gap: 32px;
-        padding: 16px 16px 40px;
+        gap: 16px;
+        padding: 16px 16px 32px;
         &__option {
             display: none;
             width: 100%;
@@ -376,6 +361,7 @@
         &__images {
             order: 3;
             width: 100%;
+            gap: 16px;
             img {
                 width: 100%;
                 min-height: 150px;
