@@ -1559,9 +1559,7 @@ img {
   gap: 24px;
 }
 .aboutContent__section .detail--partners img {
-  flex: 0 0 calc(20% - 19.2px);
-  min-width: 0;
-  height: 48px;
+  height: 72px;
   -o-object-fit: contain;
      object-fit: contain;
   -o-object-position: center;
@@ -1596,7 +1594,7 @@ img {
     gap: 16px;
   }
   .aboutContent__section .detail--partners img {
-    flex: 0 0 calc(33.3333333333% - 10.6666666667px);
+    height: 32px;
     min-width: 0;
   }
 }
