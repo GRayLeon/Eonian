@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Eonian | Product</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('.optionSection li').on('click', function() {
+                $(this).siblings().removeClass('active')
+                $(this).addClass('active')
+            })
+            $('.openButton').on('click', function() {
+                $('.inquiryArea').addClass('open')
+                setTimeout(() => {
+                    $('.inquiryArea').addClass('show')
+                }, 100)
+            })
+            $('.closeButton').on('click', function() {
+                $('.inquiryArea').removeClass('show')
+                setTimeout(() => {
+                    $('.inquiryArea').removeClass('open')
+                }, 300)
+            })
+        })
+    </script>
+    <script src="./js/transition.js"></script>
+    <script src="./js/menu.js"></script>
+</head>
+<body>
+    <div id="app" class="fade-in">
+        <div class="header">
+            <a href="./index.html"><img class="logo" src="./images/logo.svg"></a>
+            <ul class="mainNav">
+                <li class="active"><a href="./product.html">Product</a></li>
+                <li><a href="./project.html">Project</a></li>
+                <li><a href="./brand.html">Brand</a></li>
+                <li><a href="./news.html">News</a></li>
+                <li><a href="./about.html">About us</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <ul class="lanSwitch">
+                <li class="active">EN</li>
+                <li>中文</li>
+            </ul>
+            <div class="switchButton"></div>
+        </div>
+        <div class="content">
+            <div class="productInsideContent">
+                <div class="productInsideContent__option">
+                    <div class="optionSection">
+                        <div class="head">Shapes</div>
+                        <ul>
+                            <li>
+                                <img src="./images/shapeDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/shapeDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/shapeDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/shapeDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/shapeDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/shapeDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/shapeDemo.png">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="optionSection">
+                        <div class="head">Colors</div>
+                        <ul>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                            <li>
+                                <img src="./images/colorDemo.png">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="productInsideContent__images">
+                    <img src="./images/productDemo.png">
+                    <img src="./images/productInsideDemo.png">
+                    <img src="./images/productInsideDemo.png">
+                    <img src="./images/productInsideDemo.png">
+                    <img src="./images/productInsideDemo.png">
+                </div>
+                <div class="productInsideContent__info">
+                    <div class="stickyCard">
+                        <div class="productTitle">
+                            <h2>Absaroka</h2>
+                            <span class="model">A1062</span>
+                        </div>
+                        <div class="description">
+                            <p>
+                                Natural Stacked Stone is ideal for both residential and commercial applications including walls, columns, fireplaces, countertops, island bases and grills. Made of real stone, this series offers superior quality and luxury.
+                            </p>
+                        </div>
+                        <div class="spec">
+                            <div class="spec__item">Dimension: 10x10x0.5</div>
+                            <div class="spec__item">Origin: Taiwan</div>
+                            <div class="spec__item">Colour: 1062</div>
+                            <div class="spec__item">Slip Resistance: 5</div>
+                            <div class="spec__item">Application: Exterior</div>
+                        </div>
+                        <div class="optional">
+                            <div class="productInsideContent__option">
+                                <div class="optionSection">
+                                    <div class="head">Shapes</div>
+                                    <ul>
+                                        <li>
+                                            <img src="./images/shapeDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/shapeDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/shapeDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/shapeDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/shapeDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/shapeDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/shapeDemo.png">
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="optionSection">
+                                    <div class="head">Colors</div>
+                                    <ul>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                        <li>
+                                            <img src="./images/colorDemo.png">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inquiry">
+                            <div class="inquirySection">
+                                <div class="head">Unit</div>
+                                <div class="option">
+                                    <select name="" id="">
+                                        <option value="">m2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="inquirySection">
+                                <div class="head">Amount</div>
+                                <div class="option">
+                                    <input type="number">
+                                </div>
+                            </div>
+                            <div class="inquirySection">
+                                <div class="head">Total</div>
+                                <div class="option">
+                                    <div class="sum">
+                                        $ <span>12,400</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inquirySection">
+                                <div class="linkButton">Download Inquiry PDF</div>
+                            </div>
+                            <div class="inquirySection">
+                                <div class="linkButton openButton">Send Inquiry to Eonian Sales TeamTotal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="topArea">
+                <div class="topArea__logo">
+                    <img src="./images/logo--footer.svg">
+                </div>
+                <div class="topArea__info">
+                    <div class="company">
+                        <div class="title">
+                            Eonian Acumen Co., LTD.
+                        </div>
+                        <ul>
+                            <li>6F, No 215, Heping East Rd Section 3, Taipei, Taiwan</li>
+                            <li>service@eonian.space</li>
+                            <li>02 2735 3598</li>
+                        </ul>
+                    </div>
+                    <ul class="message">
+                        <li>
+                            <img src="./images/message--fb.png">
+                        </li>
+                        <li>
+                            <img src="./images/message--line.png">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bottomArea">
+                <div class="bottomArea__copyright">
+                    <span>&copy; Eonian Acumen Corporation</span>
+                </div>
+                <div class="bottomArea__link">
+                    <ul class="social">
+                        <li>
+                            <a href="">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="">Instagram</a>
+                        </li>
+                    </ul>
+                    <ul class="subPages">
+                        <li>Privacy Policy</li>
+                        <li>Legal Notice</li>
+                        <li>Terms of Use</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="inquiryArea">
+            <div class="inquiryArea__box">
+                <div class="inquiryTitle">
+                    <h2>Send Inquiry to Eonian Sales TeamTotal</h2>
+                    <div class="closeButton">close</div>
+                </div>
+                <div class="contactContent__table">
+                    <div class="section">
+                        <div class="head">I'm A</div>
+                        <div class="inputArea">
+                            <input type="text" placeholder="Your Job">
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">I need help with?</div>
+                        <div class="inputArea">
+                            <input type="text" placeholder="Your Message">
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">Question</div>
+                        <div class="inputArea">
+                            <textarea placeholder="Your Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">First Name</div>
+                        <div class="inputArea">
+                            <input type="text" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">Last Name</div>
+                        <div class="inputArea">
+                            <input type="text" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">Email</div>
+                        <div class="inputArea">
+                            <input type="text" placeholder="Your Message">
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head">Phone Number</div>
+                        <div class="inputArea">
+                            <input type="text" placeholder="Your Message">
+                            <div class="checkboxArea">
+                                <input type="checkbox" name="" id="checkInfo" checked>
+                                <label for="checkInfo">
+                                    <p>
+                                        I would like to receive information and inspiration from us.
+                                    </p>
+                                </label>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="head"></div>
+                        <div class="inputArea">
+                            <div class="buttonArea">
+                                <div class="reCaptcha"></div>
+                                <div class="button">send</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

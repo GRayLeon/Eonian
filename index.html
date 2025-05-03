@@ -1,88 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Eonian | Index</title>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            let triggered = false
-            const scrollThreshold = 50
-
-            window.addEventListener('wheel', (event) => {
-                if (!triggered && event.deltaY > scrollThreshold) {
-                    triggerTransition()
-                }
-            })
-
-            let touchStartY = 0
-
-            window.addEventListener('touchstart', (event) => {
-                touchStartY = event.touches[0].clientY
-            })
-
-            window.addEventListener('touchmove', (event) => {
-                const touchEndY = event.touches[0].clientY
-                const deltaY = touchStartY - touchEndY
-
-                if (!triggered && deltaY > scrollThreshold) {
-                    triggerTransition()
-                }
-            })
-
-            function triggerTransition() {
-                triggered = true
-
-                $('.fullscreen-transition').addClass('active')
-
-                setTimeout(() => {
-                    window.location.href = './product.html'
-                }, 1000)
-            }
-        })
-
-    </script>
-    <script src="./js/transition.js"></script>
-    <script src="./js/menu.js"></script>
-</head>
-<body>
-    <div id="app">
-        <div class="indexPage">
-            <div class="indexPage__images">
-                <img src="./images/indexDemo.jpg">
-            </div>
-            <div class="indexPage__content">
-                <div class="indexPage__header">
-                    <ul class="indexPage__mainNav">
-                        <li><a href="./product.html">Product</a></li>
-                        <li><a href="./project.html">Project</a></li>
-                        <li><a href="./brand.html">Brand</a></li>
-                        <li><img src="./images/indexPage__logoIcon.svg"></li>
-                        <li><a href="./news.html">News</a></li>
-                        <li class="active"><a href="./about.html">About us</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                    </ul>
-                    <ul class="indexPage__lanSwitch">
-                        <li class="active">EN</li>
-                        <li>中文</li>
-                    </ul>
-                </div>
-                <div class="indexPage__title">
-                    <div class="slogan">Crafting beauty,</div>
-                    <img src="./images/indexPage__logo.svg">
-                    <div class="slogan">defining harmony.</div>
-                </div>
-                <div class="indexPage__footer">
-                    <p>
-                        With over 30 years of expertise in the building materials industry, Eonian is dedicated to crafting spaces that stand the test of time. Inspired by the ancient Greek word aiōn, meaning “eternity” or “infinity,” Eonian embodies a core philosophy prioritising sustainability that meets the demands of the changing times. We seamlessly blend form and function to transform spaces that are both environmentally considerate and people-centric.
-                    </p>
-                    <img src="./images/arrowDown.svg">
-                </div>
-            </div>
-        </div>
-        <div class="fullscreen-transition"></div>
-    </div>
-</body>
+    <title>Eonian</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
