@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 
 export const useLoadStore = defineStore('load', () => {
 
+  const isLanLoading = ref(false)
+
   const isLoading = ref(false)
 
   const isLoadingOpen = ref(false)
@@ -12,14 +14,14 @@ export const useLoadStore = defineStore('load', () => {
     isLoadingOpen.value = true
     setTimeout(function() {
       isLoadingShow.value = true
-    }, 250)
+    }, 10)
   })
 
   const closeLoading = ref( () => {
     isLoadingShow.value = false
     setTimeout(function() {
       isLoadingOpen.value = false
-    }, 250)
+    }, 300)
   })
 
   const isInquiryOpen = ref(false)
@@ -46,6 +48,7 @@ export const useLoadStore = defineStore('load', () => {
   })
 
   return { 
+    isLanLoading,
     isLoading, isLoadingOpen, isLoadingShow,
     openLoading, closeLoading,
     isInquiryOpen, isInquiryShow,

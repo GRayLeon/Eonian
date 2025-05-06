@@ -1,8 +1,11 @@
 <script setup>
-  import { useLoadStore } from '@/stores/load'
   import { useInquiryStore } from '@/stores/inquiry'
+  import { useLoadStore } from '@/stores/load'
   import { storeToRefs } from 'pinia'
   import { ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { t, locale } = useI18n()
 
   const loadStore = useLoadStore()
 	const { isInquiryOpen, isInquiryShow, closeInquiry } = storeToRefs(loadStore)
@@ -29,6 +32,10 @@
     status: 'pending'
   })
 
+  const showLanText = input => {
+    return input[locale.value]
+  }
+
 </script>
 <template>
   <div
@@ -46,65 +53,65 @@
       </div>
       <div class="contactContent__table">
         <div class="section">
-          <div class="head">I'm A</div>
+          <div class="head">{{ $t('inquiry.userType') }}</div>
           <div class="inputArea">
             <input
               v-model="inquiryInfo.data.userType"
               type="text"
-              placeholder="Your Job">
+              :placeholder="$t('inquiry.placeholder.job')">
           </div>
         </div>
         <div class="section">
-          <div class="head">I need help with?</div>
+          <div class="head">{{ $t('inquiry.topic') }}</div>
           <div class="inputArea">
             <input
               v-model="inquiryInfo.data.topic"
               type="text"
-              placeholder="Your Message">
+              :placeholder="$t('inquiry.placeholder.message')">
           </div>
         </div>
         <div class="section">
-          <div class="head">Question</div>
+          <div class="head">{{ $t('inquiry.question') }}</div>
           <div class="inputArea">
             <textarea
               v-model="inquiryInfo.data.question"
-              placeholder="Your Message"></textarea>
+              :placeholder="$t('inquiry.placeholder.message')"></textarea>
           </div>
         </div>
         <div class="section">
-          <div class="head">First Name</div>
+          <div class="head">{{ $t('inquiry.firstName') }}</div>
           <div class="inputArea">
             <input
               v-model="inquiryInfo.data.firstName"
               type="text"
-              placeholder="First Name">
+              :placeholder="$t('inquiry.placeholder.firstName')">
           </div>
         </div>
         <div class="section">
-          <div class="head">Last Name</div>
+          <div class="head">{{ $t('inquiry.lastName') }}</div>
           <div class="inputArea">
             <input
               v-model="inquiryInfo.data.lastName"
               type="text"
-              placeholder="Last Name">
+              :placeholder="$t('inquiry.placeholder.lastName')">
           </div>
         </div>
         <div class="section">
-          <div class="head">Email</div>
+          <div class="head">{{ $t('inquiry.email') }}</div>
           <div class="inputArea">
             <input
               v-model="inquiryInfo.data.email"
               type="text"
-              placeholder="Your Message">
+              :placeholder="$t('inquiry.placeholder.message')">
           </div>
         </div>
         <div class="section">
-          <div class="head">Phone Number</div>
+          <div class="head">{{ $t('inquiry.number') }}</div>
           <div class="inputArea">
             <input
               v-model="inquiryInfo.data.number"
               type="text"
-              placeholder="Your Message">
+              :placeholder="$t('inquiry.placeholder.message')">
             <div class="checkboxArea">
               <input 
                 v-model="inquiryInfo.data.subscribe"
@@ -112,9 +119,7 @@
                 id="checkInfo"
                 checked>
               <label for="checkInfo">
-                <p>
-                  I would like to receive information and inspiration from us.
-                </p>
+                <p>{{ $t('inquiry.subscribe') }}</p>
               </label>
               <span></span>
             </div>
@@ -127,7 +132,7 @@
               <div class="reCaptcha"></div>
               <div
                 @click="sendInquiry(inquiryInfo)"
-                class="button">send</div>
+                class="button">{{ $t('inquiry.send') }}</div>
             </div>
           </div>
         </div>

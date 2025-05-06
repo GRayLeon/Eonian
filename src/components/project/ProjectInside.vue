@@ -2,7 +2,10 @@
   import { useProjectStore } from '@/stores/project'
 	import { storeToRefs } from 'pinia'
   import { useRoute } from 'vue-router'
-  import { ref, watch, computed } from 'vue'
+  import { ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { locale } = useI18n()
 
   const projectStore = useProjectStore()
 	const { projects } = storeToRefs(projectStore)
@@ -30,6 +33,10 @@
     }],
     tags: []
   })
+
+  const showLanText = input => {
+    return input[locale.value]
+  }
 
   const initProjectInfo = () => {
     projects.value.data.forEach(project => {
@@ -59,7 +66,7 @@
             <div class="subtitle">{{ projectInfo.artist }}</div>
           </div>
           <div class="description">
-            <p>{{ projectInfo.description.en }}</p>
+            <p>{{ showLanText(projectInfo.description) }}</p>
           </div>
           <ul class="tagList">
             <li v-for="tag in projectInfo.tags">{{ tag }}</li>

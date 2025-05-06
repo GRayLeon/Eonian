@@ -13,6 +13,14 @@ export const usePagesStore = defineStore('pages', () => {
 	const { errorHandle } = storeToRefs(dialogStore)
 
   const pagesInfo = ref({
+    index: {
+      description: {
+        en: '',
+        zh: ''
+      },
+      imageURL: '',
+      imagePublicId: ''
+    },
     vision: {
       description: {
         en: '',
@@ -25,7 +33,17 @@ export const usePagesStore = defineStore('pages', () => {
       name: '',
       imageURL: '',
       imagePublicId: ''
-    }]
+    }],
+    contact: {
+      description: {
+        en: '',
+        zh: ''
+      },
+      address: {
+        en: '',
+        zh: ''
+      }
+    },
   })
 
   const isGetPages = ref(false)

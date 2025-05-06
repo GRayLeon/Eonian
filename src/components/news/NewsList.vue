@@ -2,7 +2,10 @@
   import { useNewsStore } from '@/stores/news'
 	import { storeToRefs } from 'pinia'
   import { RouterLink } from 'vue-router'
-  import { ref, computed, onMounted } from 'vue'
+  import { ref, onMounted } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { locale } = useI18n()
 
   const newsStore = useNewsStore()
 	const { page, news, getNews } = storeToRefs(newsStore)
@@ -26,6 +29,10 @@
     focusCategory.value = category
   }
 
+  const showLanText = input => {
+    return input[locale.value]
+  }
+
   onMounted( () => {
     getNews.value(page.value)
   })
@@ -36,19 +43,19 @@
       <li
         :class="{ active: focusCategory == 'all' }"
         @click="categorySwitch('all')">
-        <span class="category">All</span>
+        <span class="category">{{ $t('news.all') }}</span>
         <span class="amount">({{ news.categoryAmount['Press_Coverage'] || 0 + news.categoryAmount['Press_Coverage'] || 0}})</span>
       </li>
       <li
         :class="{ active: focusCategory == 'Press_Coverage' }"
         @click="categorySwitch('Press_Coverage')">
-        <span class="category">Press Coverage</span>
+        <span class="category">{{ $t('news.coverage') }}</span>
         <span class="amount">({{ news.categoryAmount['Press_Coverage'] || 0 }})</span>
       </li>
       <li
         :class="{ active: focusCategory == 'Joural_Articles' }"
         @click="categorySwitch('Joural_Articles')">
-        <span class="category">Joural Articles</span>
+        <span class="category">{{ $t('news.article') }}</span>
         <span class="amount">({{ news.categoryAmount['Joural_Articles']|| 0 }})</span>
       </li>
     </ul>
@@ -56,7 +63,7 @@
       <li v-for="news in news.data">
         <div class="info">
           <div class="title">
-            <h2>{{ news.topic.en }}</h2>
+            <h2>{{ showLanText(news.topic) }}</h2>
             <span class="category">{{ news.category.split('_')[0] }} {{ news.category.split('_')[1] }}</span>
           </div>
           <span class="date">{{ dateFormate(news.createTime) }}</span>
@@ -65,8 +72,8 @@
           <img :src="news.imageURL">
         </div>
         <div class="description">
-          <p>{{ news.description.en }}</p>
-          <RouterLink :to="`/news/${news._id}`" class="linkButton">more...</RouterLink>
+          <p>{{ showLanText(news.description) }}</p>
+          <RouterLink :to="`/news/${news._id}`" class="linkButton">{{ $t('button.more') }}...</RouterLink>
         </div>
       </li>
     </ul>

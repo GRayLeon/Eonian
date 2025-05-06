@@ -3,7 +3,7 @@
 	import { storeToRefs } from 'pinia'
 
   const loadStore = useLoadStore()
-	const { isLoadingOpen, isLoadingShow } = storeToRefs(loadStore)
+	const { isLoadingOpen, isLoadingShow, isLanLoading } = storeToRefs(loadStore)
 
 
 </script>
@@ -13,7 +13,8 @@
     class="adminLoading"
     :class="[
       { open: isLoadingOpen },
-      { show: isLoadingShow }
+      { show: isLoadingShow },
+      { top: isLanLoading }
     ]">
     <div class="loadingText">
       LOADING

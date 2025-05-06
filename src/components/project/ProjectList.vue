@@ -3,6 +3,9 @@
   import { storeToRefs } from 'pinia'
   import { RouterLink } from 'vue-router'
   import { ref, computed, watch, onMounted } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { t, locale } = useI18n()
 
   const projectStore = useProjectStore()
   const {
@@ -60,6 +63,19 @@
     focusedIndexes.value[cardIndex] = 0
   }
 
+  const zhCategoryMap = {
+    'Residence': '住宅',
+    'Commercial Space': '商業空間'
+  }
+
+  const showCategoryText = (text) => {
+    return locale.value === 'zh' ? zhCategoryMap[text] || text : text
+  }
+
+  const showLanText = input => {
+    return input[locale.value]
+  }
+
   watch(
     () => projects.value.data,
     (newProjects) => {
@@ -67,7 +83,6 @@
     },
     { immediate: true }
   )
-
 
   onMounted( () => {
     getProjects.value(page.value)
@@ -78,6 +93,14 @@
   <div class="projectContent">
     <div class="searchOption">
       <div
+        v-if="locale == 'en'"
+        :class="{ show: searchResult }"
+        class="searchResult">
+        <span @click="claerSearch()">✕</span>
+        Search result for "{{ searchResult }}":
+      </div>
+      <div
+        v-else
         :class="{ show: searchResult }"
         class="searchResult">
         <span @click="claerSearch()">✕</span>
@@ -102,10 +125,10 @@
           <div class="info">
             <div class="title">
               <h2>{{ project.title }}</h2>
-              <span class="category">{{ project.category }}</span>
+              <span class="category">{{ showCategoryText(project.category) }}</span>
             </div>
             <div class="description">
-              <p>{{ project.description.en }}</p>
+              <p>{{ showLanText(project.description) }}</p>
             </div>
           </div>
           <div class="images">
@@ -135,8 +158,9 @@
       </li>
     </ul>
     <div v-else class="noContent">
-      沒有相關結果
-      <span @click="claerSearch()">清除條件</span>
+      <b v-if="locale == 'en'">No results found.</b>
+      <b v-else>沒有相關結果</b>
+      <span @click="claerSearch()">{{ $t('button.clear') }}</span>
     </div>
   </div>
 </template>

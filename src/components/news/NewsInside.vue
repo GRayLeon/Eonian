@@ -3,6 +3,9 @@
 	import { storeToRefs } from 'pinia'
   import { useRoute } from 'vue-router'
   import { ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { locale } = useI18n()
 
   const newsStore = useNewsStore()
 	const { news } = storeToRefs(newsStore)
@@ -52,6 +55,10 @@
     return date.toISOString().split('T')[0].replace(/-/g, '.')
   }
 
+  const showLanText = input => {
+    return input[locale.value]
+  }
+
   const initNewsInfo = () => {
     news.value.data.forEach( news => {
       if (news._id == route.params.id) {
@@ -76,11 +83,11 @@
       <div class="info">
         <div class="title">
           <div class="dtae">{{ newsInfo.createTime? dateFormate(newsInfo.createTime) : '' }}</div>
-          <h2>{{ newsInfo.topic.en }}</h2>
+          <h2>{{ showLanText(newsInfo.topic) }}</h2>
           <div class="category">{{ newsInfo.category.split('_')[0] }} {{ newsInfo.category.split('_')[1] }}</div>
         </div>
         <div class="description">
-          <p>{{ newsInfo.description.en }}</p>
+          <p>{{ showLanText(newsInfo.description) }}</p>
         </div>
       </div>
       <div class="image">
@@ -98,9 +105,9 @@
           <img :src="article.imageURL">
           <div class="text">
             <h3>
-              {{ article.title.en }}
+              {{ showLanText(article.title) }}
             </h3>
-            <p>{{ article.text.en }}</p>
+            <p>{{ showLanText(article.text) }}</p>
           </div>
         </div>
       </div>

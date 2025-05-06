@@ -3,6 +3,9 @@
 	import { storeToRefs } from 'pinia'
   import { useRoute } from 'vue-router'
   import { ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { locale } = useI18n()
 
   const brandStore = useBrandStore()
 	const { brands } = storeToRefs(brandStore)
@@ -32,6 +35,10 @@
       }]
     }]
   })
+
+  const showLanText = input => {
+    return input[locale.value]
+  }
 
   const initBrandInfo = () => {
     brands.value.data.forEach( brand => {
@@ -73,15 +80,15 @@
           <div
             v-if="article.text.en"
             class="article">
-            <div class="title">{{ article.title.en }}</div>
-            <p>{{ article.text.en }}</p>
+            <div class="title">{{ showLanText(article.title) }}</div>
+            <p>{{ showLanText(article.text) }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="brandInsideContent__description">
       <div class="stickyCard">
-        <p>{{ brandInfo.description.en }}</p>
+        <p>{{ showLanText(brandInfo.description) }}</p>
       </div>
     </div>
   </div>

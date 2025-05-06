@@ -5,6 +5,9 @@
 	import { storeToRefs } from 'pinia'
   import { useRoute } from 'vue-router'
   import { ref, watch, computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { t, locale } = useI18n()
 
   const productStore = useProductStore()
 	const { products } = storeToRefs(productStore)
@@ -56,6 +59,10 @@
     return (amount.value * productInfo.value.basePrice).toLocaleString()
   })
 
+  const showLanText = input => {
+    return input[locale.value]
+  }
+
   const initProductInfo = () => {
     products.value.data.forEach(product => {
       if (product._id == route.params.id) {
@@ -81,7 +88,7 @@
   <div class="productInsideContent">
     <div class="productInsideContent__option">
       <div class="optionSection">
-        <div class="head">Shapes</div>
+        <div class="head">{{ $t('spec.shapes') }}</div>
         <ul>
           <li
             :class="{ active: selectedShape == shape.title }"
@@ -92,7 +99,7 @@
         </ul>
       </div>
       <div class="optionSection">
-          <div class="head">Colors</div>
+          <div class="head">{{ $t('spec.colors') }}</div>
           <ul>
           <li
             :class="{ active: selectedColor == color.title }"
@@ -110,40 +117,40 @@
     <div class="productInsideContent__info">
         <div class="stickyCard">
             <div class="productTitle">
-                <h2>{{ productInfo.name.en }}</h2>
+                <h2>{{ showLanText(productInfo.name) }}</h2>
                 <span class="model">{{ productInfo.model }}</span>
             </div>
             <div class="description">
                 <p>
-                   {{ productInfo.description.en }}
+                   {{ showLanText(productInfo.description) }}
                 </p>
             </div>
             <div class="spec">
                 <div class="spec__item">
-                  Dimension:&nbsp;&nbsp;
+                  {{ $t('spec.dimension') }}:&nbsp;&nbsp;
                   {{ productInfo.dimension }}
                 </div>
                 <div class="spec__item">
-                  Origin:&nbsp;&nbsp;
-                  {{ productInfo.origin.en }}
+                  {{ $t('spec.origin') }}:&nbsp;&nbsp;
+                  {{ showLanText(productInfo.origin) }}
                 </div>
                 <div class="spec__item">
-                  Colour:&nbsp;&nbsp;
+                  {{ $t('spec.colour') }}:&nbsp;&nbsp;
                   {{ selectedColor }}
                 </div>
                 <div class="spec__item">
-                  Slip Resistance:&nbsp;&nbsp;
+                  {{ $t('spec.slipResistance') }}:&nbsp;&nbsp;
                   {{ productInfo.slipResistance }}
                 </div>
                 <div class="spec__item">
-                  Application:&nbsp;&nbsp;
+                  {{ $t('spec.application') }}:&nbsp;&nbsp;
                   {{ productInfo.application }}
                 </div>
             </div>
             <div class="optional">
                 <div class="productInsideContent__option">
                   <div class="optionSection">
-                    <div class="head">Shapes</div>
+                    <div class="head">{{ $t('spec.shapes') }}</div>
                     <ul>
                       <li
                         :class="{ active: selectedShape == shape.title }"
@@ -154,7 +161,7 @@
                     </ul>
                   </div>
                   <div class="optionSection">
-                      <div class="head">Colors</div>
+                      <div class="head">{{ $t('spec.colors') }}</div>
                       <ul>
                       <li
                         :class="{ active: selectedColor == color.title }"
@@ -168,7 +175,7 @@
             </div>
             <div class="inquiry">
                 <div class="inquirySection">
-                    <div class="head">Unit</div>
+                    <div class="head">{{ $t('spec.unit') }}</div>
                     <div class="option">
                         <select v-model="unit">
                             <option value="m2">m2</option>
@@ -177,7 +184,7 @@
                     </div>
                 </div>
                 <div class="inquirySection">
-                    <div class="head">Amount</div>
+                    <div class="head">{{ $t('spec.amount') }}</div>
                     <div class="option">
                         <input
                           v-model="amount"
@@ -185,7 +192,7 @@
                     </div>
                 </div>
                 <div class="inquirySection">
-                    <div class="head">Total</div>
+                    <div class="head">{{ $t('spec.total') }}</div>
                     <div class="option">
                         <div class="sum">
                             $ <span>{{ sumPrice }}</span>
@@ -195,12 +202,12 @@
                 <div class="inquirySection">
                     <div
                       class="linkButton"
-                      @click="openInquiry">Download Inquiry PDF</div>
+                      @click="openInquiry">{{ $t('button.download') }}</div>
                 </div>
                 <div class="inquirySection">
                     <div
                       class="linkButton"
-                      @click="openInquiry">Send Inquiry to Eonian Sales TeamTotal</div>
+                      @click="openInquiry">{{ $t('button.send') }}</div>
                 </div>
             </div>
         </div>

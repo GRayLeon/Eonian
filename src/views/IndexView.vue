@@ -1,6 +1,18 @@
 <script setup>
+  import { usePagesStore } from '@/stores/pages'
+  import { useLoadStore } from '@/stores/load'
+  import { storeToRefs } from 'pinia'
   import { RouterLink, onBeforeRouteLeave, useRouter } from 'vue-router'
   import { ref, onMounted, onBeforeUnmount } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { t, locale } = useI18n()
+
+  const pagesStore = usePagesStore()
+  const { pagesInfo, getPages } = storeToRefs(pagesStore)
+
+  const loadStore = useLoadStore()
+	const { isMenuOpen, toggleMenu, isLoading } = storeToRefs(loadStore)
 
   const isTransitionActive = ref(false)
   const triggered = ref(false)
@@ -41,7 +53,21 @@
     }
   }
 
+  const showLanText = input => {
+    return input[locale.value]
+  }
+
+  const setLanguage = lang => {
+    isLoading.value = true
+
+    setTimeout(function() {
+      locale.value = lang
+      isLoading.value = false
+    }, 600)
+  }
+
   onMounted(() => {
+    getPages.value()
     window.addEventListener('wheel', onWheel)
     window.addEventListener('touchstart', onTouchStart)
     window.addEventListener('touchmove', onTouchMove)
@@ -62,24 +88,30 @@
 </script>
 
 <template>
-  <div class="indexPage">
+  <div
+    class="indexPage"
+    :class="{ blur: isLoading }">
     <div class="indexPage__images">
-      <img src="@/assets/images/indexDemo.jpg">
+      <img :src="pagesInfo.index.imageURL">
     </div>
     <div class="indexPage__content">
       <div class="indexPage__header">
         <ul class="indexPage__mainNav">
-          <li><RouterLink to="/product">Product</RouterLink></li>
-          <li><RouterLink to="/project">Project</RouterLink></li>
-          <li><RouterLink to="/brand">Brand</RouterLink></li>
+          <li><RouterLink to="/product">{{ $t('title.product') }}</RouterLink></li>
+          <li><RouterLink to="/project">{{ $t('title.project') }}</RouterLink></li>
+          <li><RouterLink to="/brand">{{ $t('title.brand') }}</RouterLink></li>
           <li><img src="@/assets/images/indexPage__logoIcon.svg"></li>
-          <li><RouterLink to="/news">News</RouterLink></li>
-          <li class="active"><RouterLink to="/about">About us</RouterLink></li>
-          <li><RouterLink to="/contact">Contact</RouterLink></li>
+          <li><RouterLink to="/news">{{ $t('title.news') }}</RouterLink></li>
+          <li class="active"><RouterLink to="/about">{{ $t('title.about') }}</RouterLink></li>
+          <li><RouterLink to="/contact">{{ $t('title.contact') }}</RouterLink></li>
         </ul>
         <ul class="indexPage__lanSwitch">
-          <li class="active">EN</li>
-          <li>中文</li>
+          <li
+            @click="setLanguage('en')"
+            :class="{ active: locale == 'en'}">EN</li>
+          <li
+            @click="setLanguage('zh')"
+            :class="{ active: locale == 'zh'}">中文</li>
         </ul>
       </div>
       <div class="indexPage__title">
@@ -88,9 +120,7 @@
         <div class="slogan">defining harmony.</div>
       </div>
       <div class="indexPage__footer">
-        <p>
-          With over 30 years of expertise in the building materials industry, Eonian is dedicated to crafting spaces that stand the test of time. Inspired by the ancient Greek word aiōn, meaning “eternity” or “infinity,” Eonian embodies a core philosophy prioritising sustainability that meets the demands of the changing times. We seamlessly blend form and function to transform spaces that are both environmentally considerate and people-centric.
-        </p>
+        <p>{{ showLanText(pagesInfo.index.description) }}</p>
         <img src="@/assets/images/arrowDown.svg">
       </div>
     </div>

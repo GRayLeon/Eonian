@@ -30,7 +30,8 @@
 </script>
 
 <template>
-  <div class="appContent">
+  <div
+    class="appContent">
     <Header />
     <div class="content">
       <transition name="fade" mode="out-in">

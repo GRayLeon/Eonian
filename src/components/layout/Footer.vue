@@ -1,5 +1,23 @@
 <script setup>
+  import { usePagesStore } from '@/stores/pages'
+  import { storeToRefs } from 'pinia'
   import { RouterLink } from 'vue-router'
+  import { onMounted } from 'vue'
+  import { useI18n } from 'vue-i18n'
+
+  const { t, locale } = useI18n()
+
+  const pagesStore = usePagesStore()
+  const { pagesInfo, getPages } = storeToRefs(pagesStore)
+
+  const showLanText = input => {
+    return input[locale.value]
+  }
+
+  onMounted( () => {
+    getPages.value()
+  })
+
 </script>
 <template>
   <div class="footer">
@@ -13,7 +31,7 @@
             Eonian Acumen Co., LTD.
           </div>
           <ul>
-            <li>6F, No 215, Heping East Rd Section 3, Taipei, Taiwan</li>
+            <li>{{ showLanText(pagesInfo.contact.address) }}</li>
             <li>service@eonian.space</li>
             <li>02 2735 3598</li>
           </ul>
@@ -42,9 +60,9 @@
           </li>
         </ul>
         <ul class="subPages">
-          <li>Privacy Policy</li>
-          <li>Legal Notice</li>
-          <li>Terms of Use</li>
+          <li>{{ $t('link.policy') }}</li>
+          <li>{{ $t('link.notice') }}</li>
+          <li>{{ $t('link.terms') }}</li>
         </ul>
       </div>
     </div>
