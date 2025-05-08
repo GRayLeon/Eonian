@@ -1,13 +1,13 @@
 {
   "title": {
-    "product": "產品",
-    "project": "專案",
-    "brand": "品牌",
-    "news": "新聞",
-    "about": "關於",
+    "product": "產品一覽",
+    "project": "案例分享",
+    "brand": "代理品牌",
+    "news": "最新消息",
+    "about": "關於 Eonian",
     "vision": "關於我們",
     "partners": "合作夥伴",
-    "contact": "聯絡"
+    "contact": "聯絡我們"
   },
   "spec": {
     "shapes": "面狀",
@@ -22,20 +22,23 @@
     "total": "合計"
   },
   "inquiry": {
-    "userType": "職業別",
-    "topic": "標題",
-    "question": "問題",
+    "userType": "產業與職稱",
+    "topic": "洽詢主旨",
+    "question": "洽詢內容",
     "firstName": "姓",
     "lastName": "名",
-    "email": "信箱",
-    "number": "手機",
-    "subscribe": "我想收到你們的最新消息",
+    "email": "聯絡信箱",
+    "number": "聯絡電話",
+    "subscribe": "我想收到來自 Eonian 的最新消息",
     "send": "傳送",
     "placeholder": {
-      "job": "請輸入職業",
+      "job": "請輸入職業別",
+      "topic": "請輸入主旨",
       "message": "請輸入內容",
       "firstName": "請輸入姓",
-      "lastName": "請輸入名"
+      "lastName": "請輸入名",
+      "email": "請輸入信箱",
+      "number": "請輸入電話"
     }
   },
   "link": {

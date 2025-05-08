@@ -64,7 +64,7 @@
             <input
               v-model="inquiryInfo.data.topic"
               type="text"
-              :placeholder="$t('inquiry.placeholder.message')">
+              :placeholder="$t('inquiry.placeholder.topic')">
           </div>
         </div>
         <div class="section">
@@ -99,7 +99,7 @@
             <input
               v-model="inquiryInfo.data.email"
               type="text"
-              :placeholder="$t('inquiry.placeholder.message')">
+              :placeholder="$t('inquiry.placeholder.email')">
           </div>
         </div>
         <div class="section">
@@ -108,7 +108,7 @@
             <input
               v-model="inquiryInfo.data.number"
               type="text"
-              :placeholder="$t('inquiry.placeholder.message')">
+              :placeholder="$t('inquiry.placeholder.number')">
             <div class="checkboxArea">
               <input 
                 v-model="inquiryInfo.data.subscribe"
