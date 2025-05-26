@@ -92,7 +92,7 @@
     class="indexPage"
     :class="{ blur: isLoading }">
     <div class="indexPage__images">
-      <img :src="pagesInfo.index.imageURL">
+      <img :src="pagesInfo.index.images[0].imageURL">
     </div>
     <div class="indexPage__content">
       <div class="indexPage__header">

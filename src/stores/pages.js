@@ -18,8 +18,11 @@ export const usePagesStore = defineStore('pages', () => {
         en: '',
         zh: ''
       },
-      imageURL: '',
-      imagePublicId: ''
+      images: [{
+        imageURL: '',
+        imagePublicId: ''
+      }]
+      
     },
     vision: {
       description: {
